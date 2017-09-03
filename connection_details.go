@@ -16,6 +16,9 @@ import (
 type ConnectionDetails struct {
 	// Example: "postgres" or "sqlite3" or "mysql"
 	Dialect string
+	// RawPlaceholders disables conversion of `?` to dialect-specific form
+	// of prepared statement placeholders.
+	RawPlaceholders bool
 	// The name of your database. Example: "foo_development"
 	Database string
 	// The host of your database. Example: "127.0.0.1"

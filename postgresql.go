@@ -124,6 +124,9 @@ func (m *postgresql) MigrationURL() string {
 }
 
 func (p *postgresql) TranslateSQL(sql string) string {
+	if p.ConnectionDetails.RawPlaceholders {
+		return sql
+	}
 	defer p.mu.Unlock()
 	p.mu.Lock()
 
